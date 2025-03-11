@@ -14,7 +14,7 @@ connectDb();
 
 
 // Define the express app
-const app = express();
+const app = express(express.json());
 
 //Middleware
 app.use(cors());
@@ -25,6 +25,7 @@ app.use(morgan('dev'));
 // URL => http://localhost:3000
 app.use('/api/v1/test', require("./routes/testRoute"));
 app.use('/api/v1/auth', require("./routes/authRoutes"));
+app.use('/api/v1/user', require("./routes/userRoutes"));
 app.get("/",(req, res) => {
     return res.status(200).send("<h1>Welcome to Ecomm Server App</h1>");
 });
